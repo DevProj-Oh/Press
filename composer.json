@@ -1,0 +1,15 @@
+{
+    "name": "devproj-oh/press",
+    "description": "An elegant markdown-powered blog for Laravel framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hui-ho",
+            "email": "hui-ho@outlook.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "^4.5"
+    }
+}
