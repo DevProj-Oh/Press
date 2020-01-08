@@ -1,5 +1,5 @@
 {
-    "name": "devproj-oh/press",
+    "name": "devprojoh/press",
     "description": "An elegant markdown-powered blog for Laravel framework.",
     "license": "MIT",
     "authors": [
@@ -11,5 +11,15 @@
     "require": {},
     "require-dev": {
         "orchestra/testbench": "^4.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "devprojoh\\Press\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "devprojoh\\Press\\Tests\\": "tests/"
+        }
     }
 }
