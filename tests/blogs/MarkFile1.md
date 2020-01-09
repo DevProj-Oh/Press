@@ -3,4 +3,6 @@ title: My Title
 description: Description here
 ---
 
-Post body here
+# Heading
+
+Blog post body here
