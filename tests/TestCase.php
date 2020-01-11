@@ -7,14 +7,21 @@ use Orchestra\Testbench\TestCase as TestbenchTestCase;
 
 class TestCase extends TestbenchTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->withFactories(__DIR__ . '/../database/factories');
+    }
+
     /**
-     * Override application aliases.
+     * Get package providers.
      *
      * @param  \Illuminate\Foundation\Application  $app
      *
      * @return array
      */
-    protected function overrideApplicationProviders($app)
+    protected function getPackageProviders($app)
     {
         return [
             PressBaseServiceProvider::class,
