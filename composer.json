@@ -23,5 +23,12 @@
         "psr-4": {
             "devprojoh\\Press\\Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "devprojoh\\Press\\PressBaseServiceProvider"
+            ]
+        }
     }
 }
