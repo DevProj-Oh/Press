@@ -4,7 +4,6 @@ namespace devprojoh\Press\Tests;
 
 use Carbon\Carbon;
 use devprojoh\Press\PressFileParser;
-use Orchestra\Testbench\TestCase;
 
 class PressFileParserTest extends TestCase
 {
