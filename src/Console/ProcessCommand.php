@@ -3,7 +3,7 @@
 namespace devprojoh\Press\Console;
 
 use devprojoh\Press\Post;
-use devprojoh\Press\Press;
+use devprojoh\Press\Facades\Press;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 

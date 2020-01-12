@@ -5,6 +5,7 @@ namespace devprojoh\Press;
 use devprojoh\Press\Console\ProcessCommand;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use devprojoh\Press\Facades\Press;
 
 class PressBaseServiceProvider extends ServiceProvider
 {
@@ -30,7 +31,10 @@ class PressBaseServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'press');
 
+        $this->registerFacades();
+
         $this->registerRoutes();
+
     }
 
     protected function registerPublishing()
@@ -53,5 +57,12 @@ class PressBaseServiceProvider extends ServiceProvider
             'prefix' => Press::path(),
             'namespace' => 'devprojoh\Press\Http\Controllers',
         ];
+    }
+
+    protected function registerFacades()
+    {
+        $this->app->singleton('Press', function ($app) {
+            return new \devprojoh\Press\Press;
+        });
     }
 }
