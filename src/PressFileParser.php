@@ -2,7 +2,9 @@
 
 namespace devprojoh\Press;
 
+use devprojoh\Press\Facades\Press;
 use Illuminate\Support\Facades\File;
+use ReflectionClass;
 
 class PressFileParser
 {
@@ -57,7 +59,7 @@ class PressFileParser
     {
         foreach ($this->data as $field => $value) {
 
-            $class = 'devprojoh\\Press\\Fields\\' . ucwords($field);
+            $class = $this->getField(ucwords($field));
 
             if (!class_exists($class) && !method_exists($class, 'process')) {
                 $class = 'devprojoh\\Press\\Fields\\Extra';
@@ -67,6 +69,18 @@ class PressFileParser
                 $this->data,
                 $class::process($field, $value, $this->data)
             );
+        }
+    }
+
+    private function getField($filed)
+    {
+        foreach (Press::availableFields() as $availableField) {
+            $class = new ReflectionClass($availableField);
+
+
+            if ($class->getShortName() == $filed) {
+                return $class->getName();
+            }
         }
     }
 }
